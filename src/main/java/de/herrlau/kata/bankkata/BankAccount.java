@@ -1,6 +1,8 @@
 package de.herrlau.kata.bankkata;
 
-public record BankAccount(TransactionsRepository repository) implements Account {
+public record BankAccount(
+        TransactionsRepository repository,
+        StatementPrinter printer) implements Account {
 
     public void deposit(int amount) {
         repository.addDeposit(amount);
@@ -11,5 +13,6 @@ public record BankAccount(TransactionsRepository repository) implements Account 
     }
 
     public void printStatement() {
+        printer.print(repository.findAllTransactions());
     }
 }

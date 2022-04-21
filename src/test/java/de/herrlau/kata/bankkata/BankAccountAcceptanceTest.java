@@ -15,10 +15,12 @@ class BankAccountAcceptanceTest {
     Console console;
     private BankAccount bankAccount;
     private TransactionsRepository repository;
+    private StatementPrinter printer;
 
     @BeforeEach
     void setup() {
         repository = new TransactionsRepository();
+        printer = new StatementPrinter();
         bankAccount = new BankAccount(repository, printer);
     }
 
