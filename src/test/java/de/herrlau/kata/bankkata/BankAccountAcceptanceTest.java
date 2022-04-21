@@ -14,10 +14,12 @@ class BankAccountAcceptanceTest {
     @Mock
     Console console;
     private BankAccount bankAccount;
+    private TransactionsRepository repository;
 
     @BeforeEach
     void setup() {
-        bankAccount = new BankAccount();
+        repository = new TransactionsRepository();
+        bankAccount = new BankAccount(repository, printer);
     }
 
     @Test
