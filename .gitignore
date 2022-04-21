@@ -1,0 +1,9 @@
+### Default template
+# IntelliJ
+.idea/
+out/
+*.iml
+
+# Gradle
+.gradle
+build/
