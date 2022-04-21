@@ -40,7 +40,7 @@ class BankAccountUnitTest {
 
     @Test
     void should_print_a_statement() {
-        List<Transaction> transactions = List.of(new Transaction());
+        List<Transaction> transactions = List.of(new Transaction("10/04/1015", 100));
         given(repository.findAllTransactions()).willReturn(transactions);
 
         account.printStatement();

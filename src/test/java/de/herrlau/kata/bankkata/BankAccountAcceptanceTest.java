@@ -13,14 +13,14 @@ class BankAccountAcceptanceTest {
 
     @Mock
     Console console;
+    @Mock
+    Clock clock;
     private BankAccount bankAccount;
-    private TransactionsRepository repository;
-    private StatementPrinter printer;
 
     @BeforeEach
     void setup() {
-        repository = new TransactionsRepository();
-        printer = new StatementPrinter();
+        TransactionsRepository repository = new TransactionsRepository(clock);
+        StatementPrinter printer = new StatementPrinter();
         bankAccount = new BankAccount(repository, printer);
     }
 
